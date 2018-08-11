@@ -1,3 +1,7 @@
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+test_index:
+  path: /test
+  controller: AppBundle:Test:index

@@ -29,13 +29,18 @@ class CSVImportCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $path = $input->getArgument("file");
         $test = (bool) $input->getOption("test");
-        $result = $this->csv->import($path, $test);
+        $path = $input->getArgument("file");
+        $file = new \SplFileObject($path);
 
+        $this->csv->import($file, $test);
 
-        $output->writeln("Success: ".$result["success"]);
-        $output->writeln("Fails: ".$result["fails"]);
-        $output->writeln("Total: ".($result["fails"] + $result["success"]));
+        $success = $this->csv->getTotalSuccess();
+        $fails = $this->csv->getTotalFails();
+        $total = $this->csv->getTotalItems();
+
+        $output->writeln("Success: ".$success);
+        $output->writeln("Fails: ".$fails);
+        $output->writeln("Total: ".$total);
     }
 }

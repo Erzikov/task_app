@@ -2,61 +2,121 @@
 
 namespace AppBundle\ImportCSV;
 
-use AppBundle\Parser\CSVParser;
-use AppBundle\Validator\Validator;
-
+use AppBundle\Entity\Product;
+use Doctrine\ORM\EntityManagerInterface;
+use Port\Csv\CsvReader;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class ImportCSV
 {
-    protected $validator;
-    protected $parser;
-    protected $isTest = false;
-    protected $fails = 0;
-    protected $success = 0 ;
-    protected $failsItems = [];
+    const HEADERS = [
+        "productCode",
+        "productName",
+        "productDescription",
+        "stock",
+        "costInUSA",
+        "discontinued",
+    ];
+
+    private $em;
+    private $validator;
+    private $reader;
+    private $test;
+    private $objects = [];
+    private $successItems = [];
+    private $failsItems = [];
+
 
     public function __construct(
-        CSVParser $parser,
-        Validator $validator
+        ValidatorInterface $validator,
+        EntityManagerInterface $em
     )
     {
         $this->validator = $validator;
-        $this->parser = $parser;
+        $this->em = $em;
     }
 
-    public function import($path, $test)
+    public function import(\SplFileObject $file, bool $test)
     {
-        $this->isTest = $test;
-        $items = $this->parser->parse($path);
-        foreach ($items as $item) {
-            if ($this->isValid($item) && !$this->isTest) {
-                $this->save($item);
+        $this->test = $test;
+        $this->reader = new CsvReader($file);
+        $this->reader->setHeaderRowNumber(0);
+        $this->reader->setStrict(false);
+        $this->reader->setColumnHeaders(self::HEADERS);
+
+        $this->createObjects();
+        $this->validateObjects();
+        if (!$this->test) {
+            $this->saveObjects();
+        }
+    }
+
+    private function createObjects()
+    {
+        foreach ($this->reader as $row)
+        {
+            $prod = new Product();
+            $prod->createFromArray($row);
+            $this->objects[] = $prod;
+        }
+    }
+
+    private function validateObjects()
+    {
+        foreach ($this->objects as $prod)
+        {
+            $errors = $this->validator->validate($prod);
+            if (count($errors) === 0) {
+                $this->successItems[] = $prod;
+            } else {
+                $this->failsItems[] = $prod;
+            }
+        }
+    }
+
+    private function saveObjects()
+    {
+        foreach ($this->successItems as $prod) {
+            $errors = $this->validator->validate($prod);
+
+            if (count($errors) === 0) {
+                $this->em->persist($prod);
+                $this->em->flush();
             }
         }
 
-        $result = ['success' => $this->success, 'fails' => $this->fails];
-        return $result;
-
     }
 
-    private function isValid($item)
+    /**
+     * @return int
+     */
+    public function getTotalSuccess()
     {
-        $isValid = $this->validator->validate($item);
-        if ($isValid) {
-            $this->success++;
-            return true;
-        } else {
-            $this->fails++;
-            $this->failsItems[] = $item;
-            return false;
-        }
+        return count($this->successItems);
     }
 
-    private function save($item)
+    /**
+     * @return int
+     */
+    public function getTotalFails()
     {
-        //
+        return count($this->failsItems);
     }
 
+    /**
+     * @return int
+     */
+    public function getTotalItems()
+    {
+        $success = $this->getTotalSuccess();
+        $fails = $this->getTotalFails();
+        $total = $success + $fails;
+        return $total;
+    }
+
+    /**
+     * @return array
+     */
     public function getFailsItems()
     {
         return $this->failsItems;

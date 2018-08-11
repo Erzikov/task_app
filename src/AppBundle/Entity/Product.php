@@ -3,119 +3,183 @@
 namespace AppBundle\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use AppBundle\Validator\Constraints as CustomAssert;
 
+/**
+ * @ORM\Entity()
+ * @ORM\Table(name="tblProductData")
+ * @UniqueEntity("productCode")
+ * @CustomAssert\CustomConstraints()
+ */
 class Product
 {
     /**
+     * @ORM\Column(name="intProductDataId", type="integer")
+     * @ORM\Id()
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
      * @Assert\NotBlank()
      * @Assert\Type("string")
+     * @ORM\Column(name="strProductCode", unique=true)
      */
     private $productCode;
 
     /**
      * @Assert\NotBlank()
      * @Assert\Type("string")
+     * @ORM\Column(name="strProductName")
      */
     private $productName;
 
     /**
      * @Assert\NotBlank()
      * @Assert\Type("string")
+     * @ORM\Column(name="strProductDesc")
      */
     private $productDescription;
 
     /**
      * @Assert\NotBlank()
      * @Assert\Type("integer")
+     * @ORM\Column(name="stock", type="integer")
      */
     private $stock;
 
     /**
      * @Assert\NotBlank()
      * @Assert\Type("float")
+     * @Assert\LessThan(1000)
+     * @ORM\Column(name="cost", type="float")
      */
     private $costInUSA;
 
     /**
      * @Assert\DateTime()
+     * @ORM\Column(name="dtmDiscontinued", type="date", nullable=true)
      */
     private $discontinued;
 
+    /**
+     * @ORM\Column(name="dtmAdded", type="datetime", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+     * @ORM\Version()
+     */
+
+    private $added;
+
 
     /**
-     * @return mixed
+     * @ORM\Column(name="stmTimestamp", type="datetime", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+     * @ORM\Version()
      */
-    public function getProductCode()
+    private $timestamp;
+
+    // GETTERS
+
+    /**
+     * @return int
+     */
+    public function getId():int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProductCode():string
     {
         return $this->productCode;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getProductName()
+    public function getProductName():string
     {
         return $this->productName;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getProductDescription()
+    public function getProductDescription():string
     {
         return $this->productDescription;
     }
 
     /**
-     * @return mixed
+     * @return float
      */
-    public function getCostInUSA()
+    public function getCostInUSA():float
     {
         return $this->costInUSA;
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getStock()
+    public function getStock():int
     {
         return $this->stock;
     }
 
     /**
-     * @return mixed
+     * @return \DateTime
      */
-    public function getDiscontinued()
+    public function getDiscontinued():\DateTime
     {
         return $this->discontinued;
     }
 
     /**
-     * @param mixed $productCode
+     * @return \DateTime
      */
-    public function setProductCode($productCode)
+    public function getAdded():\DateTime
     {
-        $this->productCode = (string) $productCode;
+        return $this->added;
     }
 
     /**
-     * @param mixed $productName
+     * @return \DateTime
      */
-    public function setProductName($productName)
+    public function getTimestamp():\DateTime
     {
-        $this->productName = (string) $productName;
+        return $this->timestamp;
+    }
+
+    // SETTERS
+
+    /**
+     * @param string $productCode
+     */
+    public function setProductCode(string $productCode)
+    {
+        $this->productCode = $productCode;
     }
 
     /**
-     * @param mixed $productDescription
+     * @param string $productName
      */
-    public function setProductDescription($productDescription)
+    public function setProductName(string $productName)
     {
-        $this->productDescription = (string) $productDescription;
+        $this->productName = $productName;
     }
 
     /**
-     * @param mixed $costInUSA
+     * @param string $productDescription
+     */
+    public function setProductDescription(string $productDescription)
+    {
+        $this->productDescription = $productDescription;
+    }
+
+    /**
+     * @param float $costInUSA
      */
     public function setCostInUSA($costInUSA)
     {
@@ -123,7 +187,7 @@ class Product
     }
 
     /**
-     * @param mixed $stock
+     * @param int $stock
      */
     public function setStock($stock)
     {
@@ -131,16 +195,26 @@ class Product
     }
 
     /**
-     * @param mixed $discontinued
+     * @param string $discontinued
      */
     public function setDiscontinued($discontinued)
     {
-        if ($discontinued === "yes") {
-            $date = new \DateTime();
-            $this->discontinued = $date->format('d-m-Y');
-        } else {
-            $this->discontinued = null;
+        $this->discontinued = $discontinued === "yes" ? new \DateTime() : null;
+    }
+
+    /**
+     * @param array $data
+     * @return Product
+     */
+    public function createFromArray(array $data):Product
+    {
+        foreach($data as $key => $value)
+        {
+            $methodName = "set".ucfirst($key);
+            $this->$methodName($value);
         }
 
+        return $this;
     }
+
 }
