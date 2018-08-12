@@ -43,8 +43,8 @@ class ImportCSV
         $this->reader->setHeaderRowNumber(0);
         $this->reader->setStrict(false);
         $this->reader->setColumnHeaders(self::HEADERS);
-
         $this->createObjects();
+
         foreach ($this->objects as $prod) {
             if ($this->isValid($prod) && !$this->test) {
                 $this->saveObject($prod);
