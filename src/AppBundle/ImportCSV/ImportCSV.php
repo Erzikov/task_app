@@ -46,6 +46,7 @@ class ImportCSV
 
         $this->createObjects();
         $this->validateObjects();
+
         if (!$this->test) {
             $this->saveObjects();
         }
@@ -53,8 +54,7 @@ class ImportCSV
 
     private function createObjects()
     {
-        foreach ($this->reader as $row)
-        {
+        foreach ($this->reader as $row) {
             $prod = new Product();
             $prod->createFromArray($row);
             $this->objects[] = $prod;
@@ -63,9 +63,9 @@ class ImportCSV
 
     private function validateObjects()
     {
-        foreach ($this->objects as $prod)
-        {
+        foreach ($this->objects as $prod) {
             $errors = $this->validator->validate($prod);
+
             if (count($errors) === 0) {
                 $this->successItems[] = $prod;
             } else {
@@ -108,10 +108,7 @@ class ImportCSV
      */
     public function getTotalItems()
     {
-        $success = $this->getTotalSuccess();
-        $fails = $this->getTotalFails();
-        $total = $success + $fails;
-        return $total;
+        return count($this->objects);
     }
 
     /**

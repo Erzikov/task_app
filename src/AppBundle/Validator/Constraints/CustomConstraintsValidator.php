@@ -9,8 +9,10 @@ class CustomConstraintsValidator extends ConstraintValidator
 {
     public function validate($protocol, Constraint $constraint)
     {
-        if(($protocol->getCostInUSA() < 5) && ($protocol->getStock() < 10)) {
-            $this->context->buildViolation($constraint->message)
+        if (($protocol->getCostInUSA() < 5) && ($protocol->getStock() < 10)) {
+            $this
+                ->context
+                ->buildViolation($constraint->message)
                 ->addViolation();
         }
     }

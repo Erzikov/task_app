@@ -208,8 +208,7 @@ class Product
      */
     public function createFromArray(array $data):Product
     {
-        foreach($data as $key => $value)
-        {
+        foreach ($data as $key => $value) {
             $methodName = "set".ucfirst($key);
             $this->$methodName($value);
         }
