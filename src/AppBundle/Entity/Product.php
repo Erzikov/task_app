@@ -17,6 +17,15 @@ class Product
 {
 
     const METHOD_NAME = "set%s";
+    const DATE_FORMAT = "d-m-Y";
+    const CODE = "Product Code: %s";
+    const NAME = "Product Name: %s";
+    const STOCK = "Stock: %d";
+    const COST = "Cost: %g";
+    const DISC =  "Discontinued: %s";
+    const PRODUCT = "\n %s \n %s \n %s \n %s \n %s";
+
+
     /**
      * @ORM\Column(name="intProductDataId", type="integer")
      * @ORM\Id()
@@ -131,11 +140,11 @@ class Product
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getDiscontinued():\DateTime
+    public function getDiscontinued()
     {
-        return $this->discontinued;
+        return  $this->discontinued ? $this->discontinued->format(self::DATE_FORMAT) : null;
     }
 
     /**
@@ -218,4 +227,14 @@ class Product
         return $this;
     }
 
+    public function __toString()
+    {
+        $code = sprintf(self::CODE, $this->getProductCode());
+        $name = sprintf(self::NAME, $this->getProductName());
+        $stock = sprintf(self::STOCK, $this->getStock());
+        $costInUSA = sprintf(self::COST, $this->getCostInUSA());
+        $disc = sprintf(self::DISC, $this->getDiscontinued());
+
+        return sprintf(self::PRODUCT, $code,$name, $stock, $costInUSA, $disc);
+    }
 }

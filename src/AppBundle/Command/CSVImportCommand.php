@@ -13,6 +13,7 @@ class CSVImportCommand extends Command
     const SUCCESS = "Success: %d";
     const FAILS = "Fails: %d";
     const TOTAL = "Total: %d";
+    const ITEM = "---FAIL ITEM--- %s \n";
 
     private $csv;
 
@@ -42,9 +43,15 @@ class CSVImportCommand extends Command
         $success = $this->csv->getTotalSuccess();
         $fails = $this->csv->getTotalFails();
         $total = $this->csv->getTotalItems();
+        $failsItems = $this->csv->getFailsItems();
 
+
+        $output->writeln(sprintf(self::TOTAL, $total));
         $output->writeln(sprintf(self::SUCCESS, $success));
         $output->writeln(sprintf(self::FAILS, $fails));
-        $output->writeln(sprintf(self::TOTAL, $total));
+
+        foreach ($failsItems as $item) {
+            $output->writeln(sprintf(self::ITEM, $item));
+        }
     }
 }

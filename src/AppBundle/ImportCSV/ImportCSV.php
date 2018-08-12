@@ -45,10 +45,10 @@ class ImportCSV
         $this->reader->setColumnHeaders(self::HEADERS);
 
         $this->createObjects();
-        $this->validateObjects();
-
-        if (!$this->test) {
-            $this->saveObjects();
+        foreach ($this->objects as $prod) {
+            if ($this->isValid($prod) && !$this->test) {
+                $this->saveObject($prod);
+            }
         }
     }
 
@@ -61,30 +61,40 @@ class ImportCSV
         }
     }
 
-    private function validateObjects()
+    /**
+     * @param Product $prod
+     * @return \Symfony\Component\Validator\ConstraintViolationListInterface
+     */
+    private function validateObject(Product $prod)
     {
-        foreach ($this->objects as $prod) {
-            $errors = $this->validator->validate($prod);
+        $errors = $this->validator->validate($prod);
 
-            if (count($errors) === 0) {
-                $this->successItems[] = $prod;
-            } else {
-                $this->failsItems[] = $prod;
-            }
+        if (count($errors) === 0) {
+            $this->successItems[] = $prod;
+        } else {
+            $this->failsItems[] = $prod;
         }
+
+        return $errors;
     }
 
-    private function saveObjects()
+    /**
+     * @param Product $prod
+     * @return bool
+     */
+    private function isValid(Product $prod)
     {
-        foreach ($this->successItems as $prod) {
-            $errors = $this->validator->validate($prod);
+        $errors = $this->validateObject($prod);
+        return count($errors) === 0;
+    }
 
-            if (count($errors) === 0) {
-                $this->em->persist($prod);
-                $this->em->flush();
-            }
-        }
-
+    /**
+     * @param Product $prod
+     */
+    private function saveObject(Product $prod)
+    {
+        $this->em->persist($prod);
+        $this->em->flush();
     }
 
     /**
