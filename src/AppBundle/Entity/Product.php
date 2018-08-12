@@ -79,7 +79,6 @@ class Product
      * @ORM\Column(name="dtmAdded", type="datetime", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
      * @ORM\Version()
      */
-
     private $added;
 
 
@@ -140,25 +139,25 @@ class Product
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getDiscontinued()
+    public function getDiscontinued():?string
     {
-        return  $this->discontinued ? $this->discontinued->format(self::DATE_FORMAT) : null;
+        return $this->discontinued ? $this->discontinued->format(self::DATE_FORMAT) : null;
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTime|null
      */
-    public function getAdded():\DateTime
+    public function getAdded():?\DateTime
     {
         return $this->added;
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTime|null
      */
-    public function getTimestamp():\DateTime
+    public function getTimestamp():?\DateTime
     {
         return $this->timestamp;
     }
@@ -168,7 +167,7 @@ class Product
     /**
      * @param string $productCode
      */
-    public function setProductCode(string $productCode)
+    public function setProductCode(string $productCode):void
     {
         $this->productCode = $productCode;
     }
@@ -176,7 +175,7 @@ class Product
     /**
      * @param string $productName
      */
-    public function setProductName(string $productName)
+    public function setProductName(string $productName):void
     {
         $this->productName = $productName;
     }
@@ -184,31 +183,31 @@ class Product
     /**
      * @param string $productDescription
      */
-    public function setProductDescription(string $productDescription)
+    public function setProductDescription(string $productDescription):void
     {
         $this->productDescription = $productDescription;
     }
 
     /**
-     * @param float $costInUSA
+     * @param $costInUSA
      */
-    public function setCostInUSA($costInUSA)
+    public function setCostInUSA($costInUSA):void
     {
         $this->costInUSA = (float) $costInUSA;
     }
 
     /**
-     * @param int $stock
+     * @param $stock
      */
-    public function setStock($stock)
+    public function setStock($stock):void
     {
         $this->stock = (int) $stock;
     }
 
     /**
-     * @param string $discontinued
+     * @param string|null $discontinued
      */
-    public function setDiscontinued($discontinued)
+    public function setDiscontinued(string $discontinued = null):void
     {
         $this->discontinued = $discontinued === "yes" ? new \DateTime() : null;
     }
@@ -227,7 +226,10 @@ class Product
         return $this;
     }
 
-    public function __toString()
+    /**
+     * @return string
+     */
+    public function __toString():string
     {
         $code = sprintf(self::CODE, $this->getProductCode());
         $name = sprintf(self::NAME, $this->getProductName());

@@ -36,7 +36,11 @@ class ImportCSV
         $this->em = $em;
     }
 
-    public function import(\SplFileObject $file, bool $test)
+    /**
+     * @param \SplFileObject $file
+     * @param bool $test
+     */
+    public function import(\SplFileObject $file, bool $test):void
     {
         $this->test = $test;
         $this->reader = new CsvReader($file);
@@ -52,7 +56,7 @@ class ImportCSV
         }
     }
 
-    private function createObjects()
+    private function createObjects():void
     {
         foreach ($this->reader as $row) {
             $prod = new Product();
@@ -82,16 +86,17 @@ class ImportCSV
      * @param Product $prod
      * @return bool
      */
-    private function isValid(Product $prod)
+    private function isValid(Product $prod):bool
     {
         $errors = $this->validateObject($prod);
+
         return count($errors) === 0;
     }
 
     /**
      * @param Product $prod
      */
-    private function saveObject(Product $prod)
+    private function saveObject(Product $prod):void
     {
         $this->em->persist($prod);
         $this->em->flush();
@@ -100,7 +105,7 @@ class ImportCSV
     /**
      * @return int
      */
-    public function getTotalSuccess()
+    public function getTotalSuccess():int
     {
         return count($this->successItems);
     }
@@ -108,7 +113,7 @@ class ImportCSV
     /**
      * @return int
      */
-    public function getTotalFails()
+    public function getTotalFails():int
     {
         return count($this->failsItems);
     }
@@ -116,7 +121,7 @@ class ImportCSV
     /**
      * @return int
      */
-    public function getTotalItems()
+    public function getTotalItems():int
     {
         return count($this->objects);
     }
@@ -124,7 +129,7 @@ class ImportCSV
     /**
      * @return array
      */
-    public function getFailsItems()
+    public function getFailsItems():array
     {
         return $this->failsItems;
     }

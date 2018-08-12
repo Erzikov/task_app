@@ -29,9 +29,13 @@ class CSVImportCommand extends Command
         $this->setName("csv:import")
             ->addArgument("file", InputArgument::REQUIRED)
             ->addOption('test');
-
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int|null|void
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $test = (bool) $input->getOption("test");
@@ -44,7 +48,6 @@ class CSVImportCommand extends Command
         $fails = $this->csv->getTotalFails();
         $total = $this->csv->getTotalItems();
         $failsItems = $this->csv->getFailsItems();
-
 
         $output->writeln(sprintf(self::TOTAL, $total));
         $output->writeln(sprintf(self::SUCCESS, $success));
