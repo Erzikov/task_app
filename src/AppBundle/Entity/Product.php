@@ -15,6 +15,8 @@ use AppBundle\Validator\Constraints as CustomAssert;
  */
 class Product
 {
+
+    const METHOD_NAME = "set%s";
     /**
      * @ORM\Column(name="intProductDataId", type="integer")
      * @ORM\Id()
@@ -209,7 +211,7 @@ class Product
     public function createFromArray(array $data):Product
     {
         foreach ($data as $key => $value) {
-            $methodName = "set".ucfirst($key);
+            $methodName = sprintf(self::METHOD_NAME, ucfirst($key));
             $this->$methodName($value);
         }
 

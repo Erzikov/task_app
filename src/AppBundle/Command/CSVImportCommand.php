@@ -10,6 +10,10 @@ use Symfony\Component\Console\Input\InputArgument;
 
 class CSVImportCommand extends Command
 {
+    const SUCCESS = "Success: %d";
+    const FAILS = "Fails: %d";
+    const TOTAL = "Total: %d";
+
     private $csv;
 
     public function __construct(ImportCSV $csv)
@@ -39,8 +43,8 @@ class CSVImportCommand extends Command
         $fails = $this->csv->getTotalFails();
         $total = $this->csv->getTotalItems();
 
-        $output->writeln("Success: ".$success);
-        $output->writeln("Fails: ".$fails);
-        $output->writeln("Total: ".$total);
+        $output->writeln(sprintf(self::SUCCESS, $success));
+        $output->writeln(sprintf(self::FAILS, $fails));
+        $output->writeln(sprintf(self::TOTAL, $total));
     }
 }
