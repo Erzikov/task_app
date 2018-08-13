@@ -30,8 +30,7 @@ class ImportCSV
     public function __construct(
         ValidatorInterface $validator,
         EntityManagerInterface $em
-    )
-    {
+    ) {
         $this->validator = $validator;
         $this->em = $em;
     }

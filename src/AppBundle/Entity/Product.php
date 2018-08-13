@@ -15,7 +15,6 @@ use AppBundle\Validator\Constraints as CustomAssert;
  */
 class Product
 {
-
     const METHOD_NAME = "set%s";
     const DATE_FORMAT = "d-m-Y";
     const CODE = "Product Code: %s";
@@ -76,14 +75,22 @@ class Product
     private $discontinued;
 
     /**
-     * @ORM\Column(name="dtmAdded", type="datetime", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+     * @ORM\Column(
+     *     name="dtmAdded",
+     *     type="datetime",
+     *     columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
+     * )
      * @ORM\Version()
      */
     private $added;
 
 
     /**
-     * @ORM\Column(name="stmTimestamp", type="datetime", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+     * @ORM\Column(
+     *     name="stmTimestamp",
+     *      type="datetime",
+     *      columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
+     * )
      * @ORM\Version()
      */
     private $timestamp;
