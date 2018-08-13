@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraint;
  */
 class CustomConstraints extends Constraint
 {
-    public $message = "Custom Error!";
+    public $message = "The cost is not less than 5 and the quantity is not less than 10!";
 
     public function getTargets()
     {
