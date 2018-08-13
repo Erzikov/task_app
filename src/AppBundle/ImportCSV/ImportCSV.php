@@ -26,7 +26,6 @@ class ImportCSV
     private $successItems = [];
     private $failsItems = [];
 
-
     public function __construct(
         ValidatorInterface $validator,
         EntityManagerInterface $em

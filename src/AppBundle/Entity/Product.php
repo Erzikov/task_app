@@ -24,7 +24,6 @@ class Product
     const DISC =  "Discontinued: %s";
     const PRODUCT = "\n %s \n %s \n %s \n %s \n %s";
 
-
     /**
      * @ORM\Column(name="intProductDataId", type="integer")
      * @ORM\Id()
@@ -83,7 +82,6 @@ class Product
      * @ORM\Version()
      */
     private $added;
-
 
     /**
      * @ORM\Column(

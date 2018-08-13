@@ -11,6 +11,9 @@ class CustomConstraints extends Constraint
 {
     public $message = "The cost is not less than 5 and the quantity is not less than 10!";
 
+    /**
+     * @return array|string
+     */
     public function getTargets()
     {
         return self::CLASS_CONSTRAINT;
