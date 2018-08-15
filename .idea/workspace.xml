@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9d9175c-8d98-4923-9e73-1eec80d08a90" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/ImportCSV/ImportCSV.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/ImportCSV/ImportCSV.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Validator/Constraints/CustomConstraints.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Validator/Constraints/CustomConstraints.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/AppBundle/Entity/ProductTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/AppBundle/ImportCSV/ImportCSVTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/task.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/task.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,13 +59,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Product.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Product.php">
+      <file leaf-file-name="ProductTest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/AppBundle/Entity/ProductTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3330">
-              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+            <state relative-caret-position="212">
+              <caret line="79" column="25" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
               <folding>
-                <element signature="e#36#90#0#PHP" expanded="true" />
+                <element signature="e#42#71#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImportCSV.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/ImportCSV/ImportCSV.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1351">
+              <caret line="128" column="7" lean-forward="true" selection-start-line="128" selection-start-column="7" selection-end-line="128" selection-end-column="7" />
+              <folding>
+                <element signature="e#39#68#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImportCSVTest.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/AppBundle/ImportCSV/ImportCSVTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+              <folding>
+                <element signature="e#45#79#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -93,6 +121,8 @@
         <option value="$PROJECT_DIR$/src/AppBundle/ImportCSV/ImportCSV.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Validator/Constraints/CustomConstraints.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Product.php" />
+        <option value="$PROJECT_DIR$/tests/AppBundle/Entity/ProductTest.php" />
+        <option value="$PROJECT_DIR$/tests/AppBundle/ImportCSV/ImportCSVTest.php" />
       </list>
     </option>
   </component>
@@ -157,6 +187,32 @@
       <path value="$PROJECT_DIR$/vendor/seld/signal-handler" />
       <path value="$PROJECT_DIR$/vendor/portphp/csv" />
       <path value="$PROJECT_DIR$/vendor/portphp/doctrine" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -194,7 +250,32 @@
               <item name="task" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Command" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="task" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="ImportCSV" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="task" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="task" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="task" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="ImportCSV" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -206,7 +287,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../gap_prod" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
@@ -241,12 +322,13 @@
       <workItem from="1533813004365" duration="23883000" />
       <workItem from="1533990377597" duration="8235000" />
       <workItem from="1534007323955" duration="5384000" />
-      <workItem from="1534072505698" duration="19852000" />
+      <workItem from="1534072505698" duration="26344000" />
+      <workItem from="1534345169649" duration="8540000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127402000" />
+    <option name="totallyTimeSpent" value="142434000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -261,16 +343,16 @@
     <frame x="-1" y="28" width="1368" height="713" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.11876076" visible="true" weight="0.3378788" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.11876076" visible="true" weight="0.2" />
       <window_info anchor="bottom" id="TODO" order="11" weight="0.32933104" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.5007576" side_tool="true" weight="0.32358003" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.50151515" side_tool="true" weight="0.28227195" />
       <window_info anchor="right" id="Database" order="3" weight="0.32954547" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.32874355" />
       <window_info anchor="bottom" id="Run" order="7" />
       <window_info id="Structure" order="2" sideWeight="0.88123924" side_tool="true" weight="0.3378788" />
-      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49924242" weight="0.6695353" />
+      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49848485" visible="true" weight="0.28227195" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -321,28 +403,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="27" lean-forward="true" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TestController.php" />
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/test/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Parser/CSVParser.php" />
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Product.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -486,13 +546,6 @@
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Validator/Validator.php" />
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Parser/CSVParser.php" />
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/config/services.yml" />
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-289">
@@ -521,23 +574,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TestController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
-          <folding>
-            <element signature="e#40#69#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/test/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TestController.php" />
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/test/index.html.twig" />
     <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -549,16 +587,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/ImportCSV/ImportCSV.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="22" lean-forward="true" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-          <folding>
-            <element signature="e#39#68#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -583,12 +611,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/AppBundle/Controller/DefaultControllerTest.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Tests/TestCase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Product.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3330">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+        <state relative-caret-position="-3494">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/AppBundle/Entity/ProductTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="79" column="25" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
           <folding>
-            <element signature="e#36#90#0#PHP" expanded="true" />
+            <element signature="e#42#71#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/ImportCSV/ImportCSV.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1351">
+          <caret line="128" column="7" lean-forward="true" selection-start-line="128" selection-start-column="7" selection-end-line="128" selection-end-column="7" />
+          <folding>
+            <element signature="e#39#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/AppBundle/ImportCSV/ImportCSVTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding>
+            <element signature="e#45#79#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
