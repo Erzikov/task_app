@@ -1,0 +1,9 @@
+Product Code,Product Name,Product Description,Stock,Cost in USA,Discontinued
+P0001,TestProd,TestDesc,10,399.99,
+P0002,TestProd,TestDesc,15,500,yes
+P0003,TestProd,TestDesc,14,500,yes
+,TestProd,TestDesc,15,500,yes
+P0005,,TestDesc,15,500,yes
+P0006,TestProd,,15,500,yes
+P0007,TestProd,TestDesc,3,2,yes
+P0008,TestProd,TestDesc,15,1500,yes
