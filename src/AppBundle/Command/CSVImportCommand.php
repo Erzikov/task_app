@@ -40,7 +40,13 @@ class CSVImportCommand extends Command
     {
         $test = (bool) $input->getOption("test");
         $path = $input->getArgument("file");
-        $file = new \SplFileObject($path);
+
+        try {
+            $file = new \SplFileObject($path);
+        } catch (\RuntimeException $e) {
+            $output->writeln($e->getMessage());
+            exit;
+        }
 
         $this->csv->import($file, $test);
 
